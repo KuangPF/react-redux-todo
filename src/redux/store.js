@@ -1,3 +1,5 @@
-import { createStore } from 'react-redux'
+import { createStore } from 'redux'
 
-export default createStore()
+import rootReducer from './reducers'
+
+export default createStore(rootReducer)
