@@ -20,5 +20,3 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
       return allTodos
   }
 }
-
-console.log(getTodos)

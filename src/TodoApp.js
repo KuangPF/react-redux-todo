@@ -1,6 +1,7 @@
 import React from 'react'
 import AddTdo from './components/AddTodo'
 import TodoList from './components/TodoList'
+import VisibilityFilters from './components/VisibilityFilters'
 import "./styles.css";
 
 export default function TodoApp() {
@@ -9,6 +10,7 @@ export default function TodoApp() {
       <h1>Todo List</h1>
       <AddTdo />
       <TodoList />
+      <VisibilityFilters />
     </div>
   )
 }
