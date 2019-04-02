@@ -15,7 +15,12 @@ const TodoList = ({ todos }) => (
 
 const mapStateToProps = state => {
   const { visibilityFilter } = state
+  console.log(state)
   const todos = getTodosByVisibilityFilter(state, visibilityFilter)
+  console.log(todos)
   return { todos }
 }
+
+// connnect 第一个参数为 mapStateToProps， 这个函数允许我们将 store 中的数据作为 props 绑定到组件上。
+
 export default connect(mapStateToProps)(TodoList)

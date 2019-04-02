@@ -16,7 +16,6 @@ class AddTodo extends React.Component {
   handleAddTodo = () => {
     this.props.addTodo(this.state.input)
     this.setState({ input: '' })
-    console.log(this.state.input)
   }
   render() {
     return (
@@ -30,6 +29,8 @@ class AddTodo extends React.Component {
   }
 }
 
+// connect 第二个参数 mapDispatchToProps ，作用为将 action 作为 props 绑定在组件上
+// 例如下面就是将 addTodo action 绑定在 props 上，当点击添加时调用
 export default connect(
   null,
   { addTodo }
