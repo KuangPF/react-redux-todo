@@ -28,9 +28,10 @@ const VisibilityFilters = ({ activeFilter, setFilter }) => {
 }
 
 const mapStateToProps = state => {
-  return { activeFilter: state.visibilityFilter }
+  return { activeFilter: state.visibilityFilter } // reducers/visibilityFilter.js 返回的 state
 }
 
+// connect 将 action 作为 props 绑定在组件上
 export default connect(
   mapStateToProps,
   { setFilter }
