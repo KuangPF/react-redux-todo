@@ -6,7 +6,7 @@ import "./styles.css";
 
 export default function TodoApp() {
   return (
-    <div>
+    <div className="todo-app">
       <h1>Todo List</h1>
       <AddTdo />
       <TodoList />
