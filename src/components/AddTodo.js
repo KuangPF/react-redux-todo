@@ -14,6 +14,9 @@ class AddTodo extends React.Component {
   }
 
   handleAddTodo = () => {
+    if (!this.state.input) {
+      return
+    }
     this.props.addTodo(this.state.input)
     this.setState({ input: '' })
   }
