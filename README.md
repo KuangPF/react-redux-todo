@@ -12,3 +12,25 @@
 
 他们三者之间的关系如下：
 ![redux](https://user-images.githubusercontent.com/20694238/55489471-8d5e5a00-5664-11e9-8ec9-25a13f9bdeae.png)
+
+## to-do-list 实现
+
+#### 创建一个 store
+利用 `redux` 的 `createStore` 函数实现
+``` js
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+export default createStore(rootReducer)
+```
+`createStore` 第一个参数传入 `state`，即上面提到的 `Reducer`，在 to-do-list 中，主要有两个组件在 `state` 发生改变时会在 UI 层显示出来：
+* TodoList
+* VisibilityFilters
+因此会利用 `combineReducers` 函数将着两个 `reduer` 合并称一个 `state`（redux 中的 store）返回。
+
+```js
+import { combineReducers } from 'redux'
+import visibilityFilter from './visibilityFilter'
+import todos from './todos'
+
+export default combineReducers({ todos, visibilityFilter })
+```
