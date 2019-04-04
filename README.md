@@ -7,7 +7,7 @@
 
 ## redux 三大核心
 * **Store**：是个对象，贯穿整个应用的数据都存储在这里。
-* **Action**： 是个对象，必须包含type这个属性，reducer 将根据这个属性值来对 store 进行相应的处理。除此之外的属性，就是进行这个操作需要的数据。
+* **Action**： 是个对象，必须包含 type 这个属性，reducer 将根据这个属性值来对 store 进行相应的处理。除此之外的属性，就是进行这个操作需要的数据。
 * **Reducer**：是个函数。接受两个参数：要修改的数据(state) 和 action对象。根据 action.type 来决定采用的操作，对 state 进行修改，最后返回新的 state。
 
 他们三者之间的关系如下：
@@ -25,6 +25,7 @@ export default createStore(rootReducer)
 `createStore` 第一个参数传入 `state`，即上面提到的 `Reducer`，在 to-do-list 中，主要有两个组件在 `state` 发生改变时会在 UI 层显示出来：
 * TodoList
 * VisibilityFilters
+
 因此会利用 `combineReducers` 函数将着两个 `reduer` 合并称一个 `state`（redux 中的 store）返回。
 
 ```js
@@ -34,3 +35,28 @@ import todos from './todos'
 
 export default combineReducers({ todos, visibilityFilter })
 ```
+
+#### action
+
+action 对应代码如下：
+``` js
+export const addTodo = content => ({
+  type: ADD_TODO,
+  payload: {
+    id: ++nextTodoId,
+    content
+  }
+})
+
+export const toggleTodo = id => ({
+  type: TOGGLE_TODO,
+  payload: { id }
+})
+
+export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } })
+```
+可以看出有三个 action，每个 action 都会有对应的 type，然后添加了 payload 属性，里面包含一些数据。
+
+* **addTodo**：添加 todo
+* **toggleTodo**：切换 todo 的状态，`completed` || `incomplete`
+* **setFilter**：设置 todo 的过滤条件，
