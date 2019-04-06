@@ -4,7 +4,9 @@
 
 ## 目录
 [什么是 react-redux](#什么是-react-redux)
+
 [redux 三大核心](#redux-三大核心)
+
 [to-do-list-实现](#to-do-list-实现)
 * [创建 store，action，reducer](#创建-storeactionreducer)
   * 创建一个 store
